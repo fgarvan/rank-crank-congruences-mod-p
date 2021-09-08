@@ -9,7 +9,7 @@
   end:
 ## analyzeCRANKRANKMATS:=proc(csavefile,rsavefile,ell)
 ## make-rank-crank-modp-data t ln smod sres
-analyzeCRANKRANKMATS:=proc(t, ln, smod, sres)
+analyzeCRANKRANKMATS:=proc(t, lastn, smod, sres)
  local RM,CM,CP,RP,nr,nc,PTN,j,x0,Y,k:
  local csavefile,rsavefile,ell;
  csavefile:=cat(cranksave,"-",t,"-",lastn,"-",smod,"-",sres);
