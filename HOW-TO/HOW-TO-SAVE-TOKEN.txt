@@ -1,0 +1,2 @@
+  (1)  Copy token to clip-board  (control insert)
+  (2)  git config --global credential.helper cache

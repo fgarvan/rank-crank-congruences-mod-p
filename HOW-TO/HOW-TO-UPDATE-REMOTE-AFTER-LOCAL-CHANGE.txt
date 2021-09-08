@@ -1,0 +1,7 @@
+  EXAMPLE:
+    * Made change to fortran-prog+data/mprog
+      To update remote did the following:
+        o cd fortran-prog+data/
+        o git add mprog
+        o git commit -m "updated mprog"
+        o git push

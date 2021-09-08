@@ -1,0 +1,5 @@
+  * Had problem updating local README.md after changing remote README.md at github
+    Tried:
+      git pull origin main --allow-unrelated-histories
+    BUT then did the following:
+      git pull origin main --rebase
