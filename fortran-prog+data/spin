@@ -1,0 +1,52 @@
+#!/bin/csh
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+#FUNCTION: spin - 
+#                    
+#
+#SYNTAX: spin 
+#
+#PARAMETERS: 
+#                 - 
+#
+#DESCRIPTION:
+#  
+#
+#EXAMPLE:
+#  spin 30
+#  spin 30 0
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set nargs = $#argv
+set num = $argv[1]
+if ($nargs == 2) then
+   set slnum = $argv[2]
+else
+   set slnum = 1
+endif
+set k = 1
+while ($k <= $num)
+	@ ik = $k % 4
+	if ($ik == 1) then
+	if ($k == 1) then
+	  echo  "          |" |tr '\012' '\010'
+	else
+	  echo  "|" |tr '\012' '\010'
+	endif
+	  sleep $slnum
+	endif
+	if ($ik == 2) then
+	  echo  '/' |tr '\012' '\010'
+	  sleep $slnum
+	endif
+	if ($ik == 3) then
+	  echo  "-" |tr '\012' '\010'
+	  sleep $slnum
+	endif
+	if ($ik == 4) then
+	  echo  '\' |tr '\012' '\010'
+	  sleep $slnum
+	endif
+	@ k = $k + 1
+end
+echo " "
