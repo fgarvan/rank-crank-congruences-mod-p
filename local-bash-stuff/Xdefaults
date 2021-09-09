@@ -1,0 +1,22 @@
+XTerm*background:       Light Cyan
+XTerm*colorBD:          DarkBlue
+XTerm*colorBDMode:      True
+XTerm*cursorColor:      DarkSeaGreen
+xterm*font: lucidasanstypewriter-bold-24
+XTerm*foreground:       Black
+XTerm*geometry:          83x35+10+10
+XTerm*rightScrollBar:   True
+XTerm*saveLines:        5000
+XTerm*scrollBar:        True
+XTerm*scrollTtyOutput:  False
+XTerm*toolBar:          True
+XTerm*trueType:         True
+URxvt.borderColor: black
+URxvt.internalBorder: 4 
+URxvt.background: black
+URxvt.foreground: orange
+! URxvt.inheritPixmap: True
+! URxvt.shading: 40
+! URxvt.tintColor: orange
+URxvt.scrollBar: False
+URxvt.geometry: 150x60+500+100
