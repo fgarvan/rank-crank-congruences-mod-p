@@ -1,0 +1,18 @@
+$ Warning: Cannot convert string "lucidasanstypewriter-bold-24" to type FontStruct
+Missing charset ISO8859-2 for fallback fontset
+Missing charset ISO8859-3 for fallback fontset
+Missing charset ISO8859-4 for fallback fontset
+Missing charset ISO8859-5 for fallback fontset
+Missing charset KOI8-R for fallback fontset
+Missing charset ISO8859-7 for fallback fontset
+Missing charset ISO8859-9 for fallback fontset
+Missing charset ISO8859-13 for fallback fontset
+Missing charset ISO8859-14 for fallback fontset
+Missing charset ISO8859-15 for fallback fontset
+Missing charset JISX0208.1983-0 for fallback fontset
+Missing charset KSC5601.1987-0 for fallback fontset
+Missing charset GB2312.1980-0 for fallback fontset
+Missing charset JISX0201.1976-0 for fallback fontset
+Missing charset ISO10646-1 for fallback fontset
+xterm: cannot load font "lucidasanstypewriter-bold-24"
+xterm: cannot load font "-misc-fixed-medium-r-normal--18-120-100-100-c-90-iso10646-1"
