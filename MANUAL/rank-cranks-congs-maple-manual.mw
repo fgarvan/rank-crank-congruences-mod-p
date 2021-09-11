@@ -88,11 +88,23 @@
     <Task-category name="&lt;default&gt;"/>
 </Task-table>
 <Task/>
+<Group labelreference="L1482" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
+<Input><Text-field style="Heading 1" layout="Heading 1">RANK CRANK CONGRUENCES MAPLE MANUAL</Text-field>
+</Input>
+</Group>
+<Group labelreference="L1483" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
+<Input><Text-field style="Text" layout="Normal">DATE: Fri Sep 10 20:53:04 EDT 2021</Text-field>
+</Input>
+</Group>
 <Group hide-input="false" labelreference="L15" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">currentdir(&quot;C:/cygwin64/home/fgarv/math/research/rank-crank-congruences-mod-p&quot;);</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">currentdir();</Text-field>
 </Input>
 <Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUkjbXNHNiMvSSttb2R1bGVuYW1lRzYiSSxUeXBlc2V0dGluZ0dJKF9zeXNsaWJHRic2I1Fcb0M6XGN5Z3dpbjY0XGhvbWVcZmdhcnZcbWF0aFxyZXNlYXJjaFxyYW5rLWNyYW5rLWNvbmdydWVuY2VzLW1vZC1wRic=">UVxvQzpcY3lnd2luNjRcaG9tZVxmZ2FydlxtYXRoXHJlc2VhcmNoXHJhbmstY3JhbmstY29uZ3J1ZW5jZXMtbW9kLXA2Ig==</Equation></Text-field>
 </Output>
+</Group>
+<Group labelreference="L1481" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
+</Input>
 </Group>
 <Group labelreference="L1" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
 <Input><Text-field style="Text" layout="Normal"></Text-field>
@@ -484,11 +496,11 @@ Determine which rows of the matrix <Font bold="true">mat</Font> have identical e
 </Group>
 <Section collapsed="false" isCollapsible="true" drawButton="true" MultipleChoiceAnswerIndex="-1" MultipleChoiceRandomizeChoices="false" TrueFalseAnswerIndex="-1" EssayAnswerRows="5" EssayAnswerColumns="60"><Title><Text-field style="Heading 4" layout="Heading 4">EXAMPLE</Text-field></Title>
 <Group labelreference="L1466" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">with(qseries): </Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">with(qseries): read mprog:</Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L1464" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">P0:=makeptnGFmodp(0,13,10000,13,6):</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">P0:=makeptnGFmodp(13,10000,13,6):</Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L1465" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
@@ -510,15 +522,7 @@ Determine which rows of the matrix <Font bold="true">mat</Font> have identical e
 </Output>
 </Group>
 <Group hide-input="false" labelreference="L1479" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">with(modforms): with(misc):</Text-field>
-</Input>
-</Group>
-<Group labelreference="L1474" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">PHI11:=series(Phiq(11,q,3001),q,3001):</Text-field>
-</Input>
-</Group>
-<Group hide-input="false" labelreference="L1468" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">PPHI11:=series(2*P*PHI11,q,2001):</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
 </Input>
 </Group>
 <Group labelreference="L1463" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
@@ -526,13 +530,7 @@ Determine which rows of the matrix <Font bold="true">mat</Font> have identical e
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L1469" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">symMB2:=[_E11*_E4, _E11*_E6, _E11*_E8,_E10*_E11, _E6^2*_E11, _DELTA12*_E11, _PHI11*_E11];</Text-field>
-</Input>
-<Output><Text-field style="2D Output" layout="Maple Output"><Equation executable="false" style="2D Output" display="LUklbXJvd0c2Iy9JK21vZHVsZW5hbWVHNiJJLFR5cGVzZXR0aW5nR0koX3N5c2xpYkdGJzYoLUkjbWlHRiQ2JVEnc3ltTUIyRicvJSdpdGFsaWNHUSV0cnVlRicvJSxtYXRodmFyaWFudEdRJ2l0YWxpY0YnLUkjbW9HRiQ2LVEqfiYjODc4ODt+RicvRjNRJ25vcm1hbEYnLyUmZmVuY2VHUSZmYWxzZUYnLyUqc2VwYXJhdG9yR0Y9LyUpc3RyZXRjaHlHRj0vJSpzeW1tZXRyaWNHRj0vJShsYXJnZW9wR0Y9LyUubW92YWJsZWxpbWl0c0dGPS8lJ2FjY2VudEdGPS8lJ2xzcGFjZUdRJjAuMGVtRicvJSdyc3BhY2VHRkwtSShtZmVuY2VkR0YkNiYtRiM2Mi1GIzYmLUYsNiVRJV9FMTFGJ0YvRjItRjY2LVExJkludmlzaWJsZVRpbWVzO0YnRjlGO0Y+RkBGQkZERkZGSEZKRk0tRiw2JVEkX0U0RidGL0YyRjktRjY2LVEiLEYnRjlGOy9GP0YxRkBGQkZERkZGSEZKL0ZOUSwwLjMzMzMzMzNlbUYnLUYjNiZGVkZZLUYsNiVRJF9FNkYnRi9GMkY5RmluLUYjNiZGVkZZLUYsNiVRJF9FOEYnRi9GMkY5RmluLUYjNiYtRiw2JVElX0UxMEYnRi9GMkZZRlZGOUZpbi1GIzYmLUklbXN1cEdGJDYlRmFvLUkjbW5HRiQ2JFEiMkYnRjkvJTFzdXBlcnNjcmlwdHNoaWZ0R1EiMEYnRllGVkY5RmluLUYjNiYtRiw2JVEpX0RFTFRBMTJGJ0YvRjJGWUZWRjlGaW4tRiM2Ji1GLDYlUSdfUEhJMTFGJ0YvRjJGWUZWRjkvJStmb3JlZ3JvdW5kR1EoWzAsMCwwXUYnLyUpcmVhZG9ubHlHRj1GOUY5LyUlb3BlbkdRIltGJy8lJmNsb3NlR1EiXUYnRmRxRmdxRjk=">NykqJkklX0UxMUc2IiIiIkkkX0U0R0YlRiYqJkYkRiZJJF9FNkdGJUYmKiZGJEYmSSRfRThHRiVGJiomSSVfRTEwR0YlRiZGJEYmKiYpRikiIiNGJkYkRiYqJkkpX0RFTFRBMTJHRiVGJkYkRiYqJkknX1BISTExR0YlRiZGJEYm</Equation></Text-field>
-</Output>
-</Group>
-<Group hide-input="false" labelreference="L1471" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
-<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal">MB2:=map(f-&gt;series(subs({_E11=E11,_PHI11=PHI11,_E4=E4,_E6=E6,_E8=E8,_E10=E10,_DELTA12=DELTA12},f),q,250),symMB2):</Text-field>
+<Input><Text-field prompt="&gt; " style="Maple Input" layout="Normal"></Text-field>
 </Input>
 </Group>
 <Group hide-input="false" labelreference="L1476" drawlabel="true" applyint="true" applyrational="true" applyexponent="false">
