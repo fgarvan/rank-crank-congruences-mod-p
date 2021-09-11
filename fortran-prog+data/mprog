@@ -1,4 +1,5 @@
   with(LinearAlgebra):
+  read "RPCPLs.txt":
   EQROWS:=proc(mat)
     local nr,nc,L,j,k:
     nr:=Dimension(mat)[1]: nc:=Dimension(mat)[2]:
@@ -36,5 +37,70 @@ analyzeCRANKRANKMATS:=proc(t, lastn, smod, sres)
  print("CP subset of RP ",`subset`(convert(CP,set),convert(RP,set)));
  print("RP subset of CP ",`subset`(convert(RP,set),convert(CP,set)));
  print("RP = CP ",evalb(RP=CP));
-RETURN():
+RETURN([CP,RP,Y]):
+end:
+
+makerankmomGFmodp:=proc(k, t, lastn, smod, sres)
+ #  Sum N[k](smod*j + sres)*q^j  mod t
+ local RM,CM,CP,RP,nr,nc,PTN,j,x0,Y,rgf,r:
+ local csavefile,rsavefile,ell;
+ rsavefile:=cat(ranksave,"-",t,"-",lastn,"-",smod,"-",sres);
+ ell:=t;
+ RM:=ImportMatrix(rsavefile,source=tsv);
+ RP:=EQROWS(RM);
+ nr:=Dimension(RM)[1]: nc:=Dimension(RM)[2]:
+ rgf:=add(modp(add(modp(2*r^k*RM[j,r+1],t),r=1..(nc-1)),t)*q^(j-1),j=1..nr): 
+RETURN(rgf):
+end:
+
+makecrankmomGFmodp:=proc(k, t, lastn, smod, sres)
+ #  Sum M[k](smod*j + sres)*q^j  mod t
+ local RM,CM,CP,RP,nr,nc,PTN,j,x0,Y,rgf,r:
+ local csavefile,crsavefile,ell,cgf;
+ crsavefile:=cat(cranksave,"-",t,"-",lastn,"-",smod,"-",sres);
+ ell:=t;
+ CM:=ImportMatrix(crsavefile,source=tsv);
+ CP:=EQROWS(CM);
+ nr:=Dimension(CM)[1]: nc:=Dimension(CM)[2]:
+ cgf:=add(modp(add(modp(2*r^k*CM[j,r+1],t),r=1..(nc-1)),t)*q^(j-1),j=1..nr): 
+RETURN(cgf):
+end:
+
+makerankGFmodp:=proc(k, t, lastn, smod, sres)
+ #  Sum N(k, t, smod*j + sres)*q^j  mod t
+ local RM,CM,CP,RP,nr,nc,PTN,j,x0,Y,rgf,r:
+ local csavefile,rsavefile,ell;
+ rsavefile:=cat(ranksave,"-",t,"-",lastn,"-",smod,"-",sres);
+ ell:=t;
+ RM:=ImportMatrix(rsavefile,source=tsv);
+ RP:=EQROWS(RM);
+ nr:=Dimension(RM)[1]: nc:=Dimension(RM)[2]:
+ rgf:=add(modp(RM[j,k+1],t)*q^(j-1),j=1..nr): 
+RETURN(rgf):
+end:
+
+makecrankGFmodp:=proc(k, t, lastn, smod, sres)
+ #  Sum N(k, t, smod*j + sres)*q^j  mod t
+ local RM,CM,CP,RP,nr,nc,PTN,j,x0,Y,rgf,r:
+ local csavefile,rsavefile,ell,cgf;
+ csavefile:=cat(cranksave,"-",t,"-",lastn,"-",smod,"-",sres);
+ ell:=t;
+ CM:=ImportMatrix(csavefile,source=tsv);
+ CP:=EQROWS(CM);
+ nr:=Dimension(CM)[1]: nc:=Dimension(CM)[2]:
+ cgf:=add(modp(CM[j,k+1],t)*q^(j-1),j=1..nr): 
+RETURN(cgf):
+end:
+
+makeptnGFmodp:=proc( t, lastn, smod, sres)
+ #  Sum p(smod*j + sres)*q^j  mod t
+ local psavefile,PM,PP,pgf, ell,nr, j;
+ # EG:  ptnsave-13-100000-169-162
+ psavefile:=cat(ptnsave,"-",t,"-",lastn,"-",smod,"-",sres);
+ ell:=t;
+ PM:=ImportMatrix(psavefile,source=tsv);
+ PP:=EQROWS(PM);
+ nr:=Dimension(PM)[1]: 
+ pgf:=add(modp(PM[j,1],t)*q^(j-1),j=1..nr): 
+RETURN(pgf):
 end:

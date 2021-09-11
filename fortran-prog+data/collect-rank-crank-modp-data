@@ -1,0 +1,33 @@
+#!/bin/csh
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+#
+#FUNCTION: collect-rank-crank-modp-data - 
+#                    
+#
+#SYNTAX: collect-rank-crank-modp-data
+#
+#PARAMETERS: 
+#
+#DESCRIPTION:
+#  Make maple lists  RPL and CPL 
+#  and save them to the file RPCPLs.txt
+#
+#++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+# ranksave-19-100000-361-346
+echo "RPL:=[" > RPCPLs.txt
+foreach rp (ranksave-[0-9]*)
+  echo $rp | sed 's/ranksave-\([0-9]\{1,\}\)-\([0-9]\{1,\}\)-\([0-9]\{1,\}\)-\([0-9]\{1,\}\)$/\[\1,\2,\3,\4\],/' >> RPCPLs.txt
+end
+echo "[]]:" >> RPCPLs.txt
+echo "CPL:=[" >> RPCPLs.txt
+foreach crp (cranksave-[0-9]*)
+  echo $crp | sed 's/cranksave-\([0-9]\{1,\}\)-\([0-9]\{1,\}\)-\([0-9]\{1,\}\)-\([0-9]\{1,\}\)$/\[\1,\2,\3,\4\],/' >> RPCPLs.txt
+end
+echo "[]]:" >> RPCPLs.txt
+ls -dl RPCPLs.txt
+wc  RPCPLs.txt
+echo "See contents (y/n)? "
+set chk = $<
+if ("$chk" == "y") then
+   cat RPCPLs.txt
+endif

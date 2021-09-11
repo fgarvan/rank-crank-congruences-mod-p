@@ -24,6 +24,12 @@
 #  make-rank-crank-modp-data 19 80000 289 277
 #
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+set nargs = $#argv
+if ($nargs == 0) then
+ echo "SYNTAX: make-rank-crank-modp-data t lastn smod sres"
+ echo "EXAMPLE: make-rank-crank-modp-data 19 100000 361 346"
+ exit -9
+endif
 set t = $argv[1]
 set ln = $argv[2]
 set smod = $argv[3]
