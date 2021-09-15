@@ -1,0 +1,40 @@
+  with(LinearAlgebra):
+  EQROWS:=proc(mat)
+    local nr,nc,L,j,k:
+    nr:=Dimension(mat)[1]: nc:=Dimension(mat)[2]:
+    L:=[]:
+    for j from 1 to nr do 
+      if nops({seq(mat[j,k],k=1..nc)})=1 then L := [op(L),j]: fi: od:
+    RETURN(L):
+  end:
+## analyzeCRANKRANKMATS:=proc(csavefile,rsavefile,ell)
+## make-rank-crank-modp-data t ln smod sres
+analyzeCRANKRANKMATS:=proc(t, lastn, smod, sres)
+ local RM,CM,CP,RP,nr,nc,PTN,j,x0,Y,k:
+ local csavefile,rsavefile,ell;
+ csavefile:=cat(cranksave,"-",t,"-",lastn,"-",smod,"-",sres);
+ rsavefile:=cat(ranksave,"-",t,"-",lastn,"-",smod,"-",sres);
+ ell:=t;
+ RM:=ImportMatrix(rsavefile,source=tsv);
+ CM:=ImportMatrix(csavefile,source=tsv);
+ CP:=EQROWS(CM);
+ RP:=EQROWS(RM);
+ nr:=Dimension(RM)[1]: nc:=Dimension(RM)[2]:
+ PTN:=Matrix(nr,1):
+ for j from 1 to nr do 
+    x0:=RM[j,1] + 2*add(RM[j,k],k=2..nc): PTN[j,1]:=modp(x0,ell): 
+ od:
+ Y:=[]:
+ for j from 1 to nr do 
+   if PTN[j,1]=0 then 
+      Y:=[op(Y),j]:
+   fi:
+ od:
+ print("CP = ",CP , "no. ",nops(CP));
+ print("RP = ",RP , "no. ",nops(RP));
+ print("Y = ", Y , "no. ",nops(Y));
+ print("CP subset of RP ",`subset`(convert(CP,set),convert(RP,set)));
+ print("RP subset of CP ",`subset`(convert(RP,set),convert(CP,set)));
+ print("RP = CP ",evalb(RP=CP));
+RETURN():
+end:
