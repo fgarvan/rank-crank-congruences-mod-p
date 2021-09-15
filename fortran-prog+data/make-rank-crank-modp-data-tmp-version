@@ -1,4 +1,4 @@
-#!/bin/csh
+#!/usr/bin/bash
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 #
 #FUNCTION: make-rank-crank-modp-data - 
@@ -24,18 +24,18 @@
 #  make-rank-crank-modp-data 19 80000 289 277
 #
 #++++++++++++++++++++++++++++++++++++++++++++++++++++++++
-set nargs = $#argv
-if ($nargs == 0) then
+nargs=$#
+if [ $nargs -eq 0 ];  then
  echo "SYNTAX: make-rank-crank-modp-data t lastn smod sres"
  echo "EXAMPLE: make-rank-crank-modp-data 19 100000 361 346"
  exit -9
-endif
-set t = $argv[1]
-set ln = $argv[2]
-set smod = $argv[3]
-set sres = $argv[4]
-echo "make-rank-crank-modp-data $argv"
-spin 5
+fi     
+t=$1
+ln=$2
+smod=$3
+sres=$4
+echo "make-rank-crank-modp-data $t $ln $smod $sres"
+sleep 5
 #############################################################################
 echo "STEP 1:  Create init file inputdata2"
 echo "$t" > inputdata2
@@ -44,9 +44,9 @@ echo "$smod" >> inputdata2
 echo "$sres" >> inputdata2
 #############################################################################
 echo "STEP 2:  Run fortran program makegfdat"
-     spin 3
+     sleep 3
      makegfdat
-     spin 3
+     sleep 3
 #############################################################################
 echo "STEP 3:  Convert fortran output to maple input"
      sed -f sedsp2tab ranksave > ranksave-"$t"-"$ln"-"$smod"-"$sres"
@@ -56,4 +56,11 @@ echo "SEE new files: "
      ls -dl  ranksave-"$t"-"$ln"-"$smod"-"$sres"
      ls -dl cranksave-"$t"-"$ln"-"$smod"-"$sres"
      ls -dl ptnsave-"$t"-"$ln"-"$smod"-"$sres"
+echo "STEP 4:  Copy save files back to git fortran dir"
+gitdir=/m/rank-crank-congruences-mod-p/fortran-prog+data
+gitdir=$HOME/math/research/git/rank-crank-congruences-mod-p/fortran-prog+data
+echo "gitdir = $gitdir"
+     cp   ranksave-"$t"-"$ln"-"$smod"-"$sres" $gitdir
+     cp cranksave-"$t"-"$ln"-"$smod"-"$sres" $gitdir
+     cp ptnsave-"$t"-"$ln"-"$smod"-"$sres" $gitdir
 
