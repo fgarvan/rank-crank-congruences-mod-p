@@ -1,0 +1,5 @@
+
+if [ -f "${HOME}/bin/newsetalias" ] ; then
+  source "${HOME}/bin/newsetalias"
+fi
+
