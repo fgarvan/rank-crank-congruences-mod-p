@@ -1,0 +1,13 @@
+# ALIASES
+# =======
+#
+# Type source setalias
+# to set aliases
+#################################################################
+# 09.17.21
+export git1=~/rank-crank-congruences-mod-p
+alias git1="cd ~/rank-crank-congruences-mod-p" 
+##################################################################
+export res=~/research/rank-crank-congruences-mod-p
+alias res="cd ~/research/rank-crank-congruences-mod-p"    
+###############################################################

@@ -1,0 +1,12 @@
+# FG 06.12.18
+if [ -f "${HOME}/bin/newsetalias" ] ; then
+  source "${HOME}/bin/newsetalias"
+fi
+# FG
+if ( !  ps aux | grep -i  XWin ) > /dev/null ; then 
+echo "WARNING ... xlaunch starting ..."
+sleep 2
+    echo "will start xlaunch .."
+    xlaunch -run ~/config.xlaunch &
+fi
+##xlaunch -run ~/config.xlaunch &
